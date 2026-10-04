@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>KK Forge — Admin Dashboard</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+
+    <!-- ================= ADMIN APP ================= -->
+
+    <div class="admin-app">
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="sidebar">
+
+            <!-- BRAND -->
+
+            <div class="sidebar-brand">
+
+                <div class="brand-logo">
+                    <img src="../assets/image/kk-forge-logo.jpeg" alt="KK Forge Logo">
+                </div>
+
+                <div class="brand-info">
+                    <strong>KK FORGE</strong>
+                    <span>ADMIN PANEL</span>
+                </div>
+
+            </div>
+
+
+            <!-- NAVIGATION -->
+
+            <nav class="sidebar-nav">
+
+                <div class="nav-label">
+                    WORKSPACE
+                </div>
+
+                <!-- Overview -->
+                    <a href="dashboard.html" class="nav-item" data-module="dashboard">
+                        <span class="nav-icon">⌂</span>
+                        <span>Overview</span>
+                    </a>
+
+                    <!-- Projects -->
+                    <a href="projects.html" class="nav-item" data-module="projects">
+                        <span class="nav-icon">▦</span>
+                        <span>Projects</span>
+                    </a>
+
+                    <!-- Notes -->
+                    <a href="notes.html" class="nav-item" data-module="notes">
+                        <span class="nav-icon">▤</span>
+                        <span>Notes</span>
+                    </a>
+
+                    <!-- Files -->
+                    <a href="files.html" class="nav-item" data-module="files">
+                        <span class="nav-icon">▱</span>
+                        <span>Files</span>
+                    </a>
+
+                    <!-- Categories -->
+                    <a href="categories.html" class="nav-item" data-module="categories">
+                        <span class="nav-icon">◈</span>
+                        <span>Categories</span>
+                    </a>
+
+                    <!-- Settings -->
+                    <a href="settings.html" class="nav-item" data-module="settings">
+                        <span class="nav-icon">⚙</span>
+                        <span>Settings</span>
+                    </a>
+
+            </nav>
+
+
+            <!-- SIDEBAR BOTTOM -->
+
+            <div class="sidebar-bottom">
+
+                <a href="../index.html" class="view-site" target="_blank">
+
+                    <span>↗</span>
+
+                    <div>
+                        <strong>View Portfolio</strong>
+                        <small>Open public website</small>
+                    </div>
+
+                </a>
+
+
+                <div class="admin-user">
+
+                    <div class="user-avatar">
+                        K
+                    </div>
+
+                    <div class="user-info">
+                        <strong>Kartik</strong>
+                        <span>Administrator</span>
+                    </div>
+
+                    <button class="logout-btn" type="button" title="Logout">
+                        ↪
+                    </button>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- ================= MAIN CONTENT ================= -->
+
+        <main class="main-content">
+
+
+            <!-- ================= TOPBAR ================= -->
+
+            <header class="topbar">
+
+                <div class="topbar-left">
+
+                    <button class="mobile-menu" type="button" aria-label="Open menu">
+                        ☰
+                    </button>
+
+                    <div>
+
+                        <span class="page-eyebrow">
+                            KK FORGE / ADMIN
+                        </span>
+
+                        <h1>Dashboard</h1>
+
+                    </div>
+
+                </div>
+
+
+                <div class="topbar-right">
+
+                    <button class="icon-button" type="button" title="Notifications" aria-label="Notifications">
+
+                        ♢
+
+                        <span class="notification-dot"></span>
+
+                    </button>
+
+
+                    <div class="topbar-profile">
+
+                        <div class="profile-avatar">
+                            K
+                        </div>
+
+                        <div class="profile-text">
+                            <strong>Kartik Khari</strong>
+                            <span>Owner</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- ================= DASHBOARD BODY ================= -->
+
+            <div class="dashboard-content">
+
+
+                <!-- ================= WELCOME ================= -->
+
+                <section class="welcome-section">
+
+                    <div>
+
+                        <span class="welcome-label">
+                            GOOD TO SEE YOU
+                        </span>
+
+                        <h2>
+                            Build something
+                            <span>great.</span>
+                        </h2>
+
+                        <p>
+                            Manage your portfolio, projects,
+                            notes and resources from one place.
+                        </p>
+
+                    </div>
+
+
+                    <div class="system-status">
+
+                        <span class="status-dot"></span>
+
+                        <span>System Online</span>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================= OVERVIEW CARDS ================= -->
+
+                <section class="overview-grid">
+
+
+                    <!-- PROJECTS -->
+
+                    <article class="overview-card" data-dashboard-link="projects.html">
+
+                        <div class="overview-card-top">
+
+                            <span class="card-label">
+                                PROJECTS
+                            </span>
+
+                            <span class="card-icon">
+                                ◈
+                            </span>
+
+                        </div>
+
+                        <div class="card-value">
+                            <span id="projectsCount">00</span>
+                        </div>
+
+                        <div class="card-footer">
+
+                            <span>
+                                Total projects
+                            </span>
+
+                            <span class="card-arrow">
+                                ↗
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- NOTES -->
+
+                    <article class="overview-card" data-dashboard-link="notes.html">
+
+                        <div class="overview-card-top">
+
+                            <span class="card-label">
+                                NOTES
+                            </span>
+
+                            <span class="card-icon">
+                                ▤
+                            </span>
+
+                        </div>
+
+                        <div class="card-value">
+                            <span id="notesCount">00</span>
+                        </div>
+
+                        <div class="card-footer">
+
+                            <span>
+                                Learning resources
+                            </span>
+
+                            <span class="card-arrow">
+                                ↗
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- FILES -->
+
+                    <article class="overview-card" data-dashboard-link="files.html">
+
+                        <div class="overview-card-top">
+
+                            <span class="card-label">
+                                FILES
+                            </span>
+
+                            <span class="card-icon">
+                                □
+                            </span>
+
+                        </div>
+
+                        <div class="card-value">
+                            <span id="filesCount">00</span>
+                        </div>
+
+                        <div class="card-footer">
+
+                            <span>
+                                Uploaded resources
+                            </span>
+
+                            <span class="card-arrow">
+                                ↗
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- CATEGORIES -->
+
+                    <article class="overview-card" data-dashboard-link="categories.html">
+
+                        <div class="overview-card-top">
+
+                            <span class="card-label">
+                                CATEGORIES
+                            </span>
+
+                            <span class="card-icon">
+                                #
+                            </span>
+
+                        </div>
+
+                        <div class="card-value">
+                            <span id="categoriesCount">00</span>
+                        </div>
+
+                        <div class="card-footer">
+
+                            <span>
+                                Content categories
+                            </span>
+
+                            <span class="card-arrow">
+                                ↗
+                            </span>
+
+                        </div>
+
+                    </article>
+
+                </section>
+
+
+                <!-- ================= MAIN GRID ================= -->
+
+                <section class="dashboard-grid">
+
+
+                    <!-- ================= RECENT ACTIVITY ================= -->
+
+                    <div class="dashboard-panel activity-panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <span class="panel-label">
+                                    ACTIVITY
+                                </span>
+
+                                <h3>
+                                    Recent Activity
+                                </h3>
+
+                            </div>
+
+                            <a href="projects.html" class="panel-action">
+
+                                View all ↗
+
+                            </a>
+
+                        </div>
+
+
+                        <!-- JS WILL LOAD REAL ACTIVITY HERE -->
+
+                        <div class="activity-list" id="activityList">
+
+                            <div class="activity-item empty-activity">
+
+                                <div class="activity-icon neutral">
+                                    —
+                                </div>
+
+                                <div class="activity-content">
+
+                                    <strong>
+                                        No recent activity
+                                    </strong>
+
+                                    <span>
+                                        Activity will appear when
+                                        content is created or updated.
+                                    </span>
+
+                                </div>
+
+                                <time>
+                                    —
+                                </time>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ================= QUICK ACTIONS ================= -->
+
+                    <div class="dashboard-panel actions-panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <span class="panel-label">
+                                    QUICK ACTIONS
+                                </span>
+
+                                <h3>
+                                    Create something
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="quick-actions">
+
+
+                            <!-- ADD PROJECT -->
+
+                            <button class="quick-action" type="button" data-action="projects">
+
+                                <span class="quick-icon">
+                                    +
+                                </span>
+
+                                <span class="quick-content">
+
+                                    <strong>
+                                        Add Project
+                                    </strong>
+
+                                    <small>
+                                        Create a new project
+                                    </small>
+
+                                </span>
+
+                                <span class="quick-arrow">
+                                    →
+                                </span>
+
+                            </button>
+
+
+                            <!-- ADD NOTE -->
+
+                            <button class="quick-action" type="button" data-action="notes">
+
+                                <span class="quick-icon">
+                                    +
+                                </span>
+
+                                <span class="quick-content">
+
+                                    <strong>
+                                        Add Note
+                                    </strong>
+
+                                    <small>
+                                        Upload a learning note
+                                    </small>
+
+                                </span>
+
+                                <span class="quick-arrow">
+                                    →
+                                </span>
+
+                            </button>
+
+
+                            <!-- UPLOAD FILE -->
+
+                            <button class="quick-action" type="button" data-action="files">
+
+                                <span class="quick-icon">
+                                    ↑
+                                </span>
+
+                                <span class="quick-content">
+
+                                    <strong>
+                                        Upload File
+                                    </strong>
+
+                                    <small>
+                                        Add a resource
+                                    </small>
+
+                                </span>
+
+                                <span class="quick-arrow">
+                                    →
+                                </span>
+
+                            </button>
+
+
+                        </div>
+
+                    </div>
+
+
+                </section>
+
+
+                <!-- ================= PORTFOLIO STATUS ================= -->
+
+                <section class="portfolio-status">
+
+                    <div class="status-content">
+
+                        <div class="status-symbol">
+                            ✦
+                        </div>
+
+                        <div>
+
+                            <span class="panel-label">
+                                PORTFOLIO STATUS
+                            </span>
+
+                            <h3>
+                                Your portfolio is ready to grow.
+                            </h3>
+
+                            <p>
+                                Add projects, notes and resources
+                                from the dashboard and keep your
+                                public portfolio updated.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <a href="../index.html" target="_blank" class="status-button">
+
+                        Open Portfolio ↗
+
+                    </a>
+
+                </section>
+
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <!-- ================= MOBILE OVERLAY ================= -->
+
+    <div class="sidebar-overlay"></div>
+
+
+    <!-- ================= DASHBOARD JS ================= -->
+
+    <script src="js/dashboard.js"></script>
+
+</body>
+
+</html>

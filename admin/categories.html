@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Categories | KK Forge Admin</title>
+
+    <link rel="stylesheet" href="css/categories.css">
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-brand">
+            <a href="dashboard.html">
+                <span class="brand-logo">
+                    <img src="../assets/image/kk-forge-logo.jpeg"
+                         alt="KK Forge Logo">
+                </span>
+
+                <span class="brand-name">
+                    <strong>KK FORGE</strong>
+                    <small>ADMIN PANEL</small>
+                </span>
+            </a>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <p class="nav-label">MAIN</p>
+
+            <a href="dashboard.html" class="nav-item">
+                <span class="nav-icon">⌂</span>
+                <span>Overview</span>
+            </a>
+
+            <p class="nav-label">CONTENT</p>
+
+            <a href="projects.html" class="nav-item">
+                <span class="nav-icon">▣</span>
+                <span>Projects</span>
+            </a>
+
+            <a href="notes.html" class="nav-item">
+                <span class="nav-icon">▤</span>
+                <span>Notes</span>
+            </a>
+
+            <a href="files.html" class="nav-item">
+                <span class="nav-icon">□</span>
+                <span>Files</span>
+            </a>
+
+            <a href="categories.html" class="nav-item active">
+                <span class="nav-icon">◈</span>
+                <span>Categories</span>
+            </a>
+
+            <p class="nav-label">SYSTEM</p>
+
+            <a href="settings.html" class="nav-item">
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <a href="../index.html" class="view-site">
+                <span>↗</span>
+                <span>View Portfolio</span>
+            </a>
+
+            <button class="logout-btn" id="logoutBtn">
+                <span>⇥</span>
+                <span>Logout</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MOBILE OVERLAY -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+
+    <!-- MAIN -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <button class="mobile-menu" id="mobileMenu">
+                ☰
+            </button>
+
+            <div class="topbar-title">
+                <span>ADMIN / CONTENT</span>
+                <h1>Categories</h1>
+            </div>
+
+            <div class="topbar-actions">
+
+                <button class="icon-btn" id="refreshBtn" title="Refresh">
+                    ↻
+                </button>
+
+                <div class="admin-profile">
+                    <div class="profile-avatar">K</div>
+
+                    <div class="profile-info">
+                        <strong>Kartik</strong>
+                        <span>Administrator</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- PAGE -->
+        <section class="page-content">
+
+            <!-- HEADER -->
+            <div class="page-header">
+
+                <div>
+                    <span class="eyebrow">CONTENT ORGANIZATION</span>
+
+                    <h2>
+                        Manage your
+                        <span>categories.</span>
+                    </h2>
+
+                    <p>
+                        Organize projects, notes and files with reusable categories.
+                    </p>
+                </div>
+
+                <button class="primary-btn" id="addCategoryBtn">
+                    <span>＋</span>
+                    Add Category
+                </button>
+
+            </div>
+
+
+            <!-- STATS -->
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-icon">◈</div>
+                    <div>
+                        <span>Total Categories</span>
+                        <strong id="totalCategories">0</strong>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon used">✓</div>
+                    <div>
+                        <span>Used Categories</span>
+                        <strong id="usedCategories">0</strong>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon unused">○</div>
+                    <div>
+                        <span>Unused Categories</span>
+                        <strong id="unusedCategories">0</strong>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon refs">#</div>
+                    <div>
+                        <span>Total References</span>
+                        <strong id="totalReferences">0</strong>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- TOOLBAR -->
+            <div class="content-toolbar">
+
+                <div class="search-box">
+
+                    <span>⌕</span>
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search categories..."
+                    >
+
+                </div>
+
+
+                <div class="filter-group">
+
+                    <select id="typeFilter">
+                        <option value="all">All Types</option>
+                        <option value="project">Projects</option>
+                        <option value="note">Notes</option>
+                        <option value="file">Files</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- CATEGORY LIST -->
+            <div class="categories-section">
+
+                <div class="section-top">
+
+                    <div>
+                        <h3>Categories</h3>
+                        <span id="resultCount">0 categories</span>
+                    </div>
+
+                </div>
+
+
+                <div id="categoriesGrid" class="categories-grid">
+
+                    <!-- JS INSERTS CATEGORIES -->
+
+                </div>
+
+
+                <!-- EMPTY STATE -->
+                <div class="empty-state" id="emptyState">
+
+                    <div class="empty-icon">◈</div>
+
+                    <h3>No categories yet</h3>
+
+                    <p>
+                        Create your first category to organize your content.
+                    </p>
+
+                    <button class="primary-btn" id="emptyAddBtn">
+                        ＋ Add Category
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- CATEGORY MODAL -->
+<div class="modal-overlay" id="categoryModal">
+
+    <div class="modal">
+
+        <div class="modal-header">
+
+            <div>
+                <span class="modal-eyebrow">CATEGORY</span>
+                <h3 id="modalTitle">Add Category</h3>
+            </div>
+
+            <button class="modal-close" id="closeModal">
+                ×
+            </button>
+
+        </div>
+
+
+        <form id="categoryForm">
+
+            <input type="hidden" id="categoryId">
+
+
+            <div class="form-group">
+
+                <label for="categoryName">
+                    Category Name
+                </label>
+
+                <input
+                    type="text"
+                    id="categoryName"
+                    placeholder="e.g. Web Development"
+                    maxlength="60"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="categoryType">
+                        Type
+                    </label>
+
+                    <select id="categoryType">
+
+                        <option value="all">
+                            All Content
+                        </option>
+
+                        <option value="project">
+                            Projects
+                        </option>
+
+                        <option value="note">
+                            Notes
+                        </option>
+
+                        <option value="file">
+                            Files
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="categoryColor">
+                        Color
+                    </label>
+
+                    <div class="color-control">
+
+                        <input
+                            type="color"
+                            id="categoryColor"
+                            value="#11c8ff"
+                        >
+
+                        <span id="colorValue">
+                            #11C8FF
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="categoryDescription">
+                    Description
+                </label>
+
+                <textarea
+                    id="categoryDescription"
+                    rows="4"
+                    maxlength="180"
+                    placeholder="Short description of this category..."
+                ></textarea>
+
+            </div>
+
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    class="secondary-btn"
+                    id="cancelBtn"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="primary-btn"
+                >
+                    <span id="saveBtnText">Create Category</span>
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- DELETE MODAL -->
+<div class="modal-overlay" id="deleteModal">
+
+    <div class="modal delete-modal">
+
+        <div class="delete-icon">
+            !
+        </div>
+
+        <h3>Delete Category?</h3>
+
+        <p id="deleteMessage">
+            Are you sure you want to delete this category?
+        </p>
+
+        <div class="modal-actions">
+
+            <button
+                type="button"
+                class="secondary-btn"
+                id="cancelDelete"
+            >
+                Cancel
+            </button>
+
+            <button
+                type="button"
+                class="danger-btn"
+                id="confirmDelete"
+            >
+                Delete
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+
+    <span class="toast-icon">✓</span>
+
+    <span id="toastMessage">
+        Done
+    </span>
+
+</div>
+
+
+<script src="js/categories.js"></script>
+
+</body>
+</html>

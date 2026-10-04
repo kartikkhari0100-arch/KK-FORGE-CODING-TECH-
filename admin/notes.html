@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Notes | KK Forge Admin</title>
+
+    <link rel="stylesheet" href="css/notes.css">
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-brand">
+            <a href="dashboard.html">
+                <img src="../assets/image/kk-forge-logo.jpeg" alt="KK Forge Logo">
+
+                <div>
+                    <strong>KK FORGE</strong>
+                    <small>ADMIN PANEL</small>
+                </div>
+            </a>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <p class="nav-label">MAIN</p>
+
+            <a href="dashboard.html" class="nav-item" data-module="dashboard">
+                <span class="nav-icon">⌂</span>
+                <span>Overview</span>
+            </a>
+
+            <a href="projects.html" class="nav-item" data-module="projects">
+                <span class="nav-icon">▦</span>
+                <span>Projects</span>
+            </a>
+
+            <a href="notes.html" class="nav-item active" data-module="notes">
+                <span class="nav-icon">▤</span>
+                <span>Notes</span>
+            </a>
+
+            <a href="files.html" class="nav-item" data-module="files">
+                <span class="nav-icon">▱</span>
+                <span>Files</span>
+            </a>
+
+            <p class="nav-label">MANAGEMENT</p>
+
+            <a href="categories.html" class="nav-item" data-module="categories">
+                <span class="nav-icon">◈</span>
+                <span>Categories</span>
+            </a>
+
+            <a href="settings.html" class="nav-item" data-module="settings">
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <a href="../index.html" class="view-portfolio">
+                ↗ &nbsp; View Portfolio
+            </a>
+
+            <button class="logout-btn" id="logoutBtn">
+                ⇥ &nbsp; Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+
+    <!-- MAIN -->
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <button class="mobile-menu" id="mobileMenu">
+                ☰
+            </button>
+
+            <div class="topbar-title">
+                <span>ADMIN /</span>
+                <strong>NOTES</strong>
+            </div>
+
+            <div class="topbar-actions">
+
+                <button class="icon-btn" id="refreshBtn">
+                    ↻
+                </button>
+
+                <div class="admin-avatar">
+                    K
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <section class="page">
+
+            <!-- HEADER -->
+            <div class="page-header">
+
+                <div>
+                    <span class="eyebrow">
+                        KNOWLEDGE MANAGEMENT
+                    </span>
+
+                    <h1>
+                        Your <span>Notes.</span>
+                    </h1>
+
+                    <p>
+                        Manage study notes and learning resources for your portfolio.
+                    </p>
+                </div>
+
+                <button class="primary-btn" id="addNoteBtn">
+                    ＋ Add Note
+                </button>
+
+            </div>
+
+
+            <!-- STATS -->
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-icon">▤</div>
+
+                    <div>
+                        <span>Total Notes</span>
+                        <strong id="totalNotes">0</strong>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">★</div>
+
+                    <div>
+                        <span>Featured</span>
+                        <strong id="featuredNotes">0</strong>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">◈</div>
+
+                    <div>
+                        <span>Categories</span>
+                        <strong id="noteCategories">0</strong>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">✓</div>
+
+                    <div>
+                        <span>Published</span>
+                        <strong id="publishedNotes">0</strong>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- TOOLBAR -->
+            <div class="content-toolbar">
+
+                <div class="search-box">
+
+                    <span>⌕</span>
+
+                    <input
+                        type="search"
+                        id="noteSearch"
+                        placeholder="Search notes..."
+                    >
+
+                </div>
+
+
+                <div class="filter-group">
+
+                    <select id="categoryFilter">
+                        <option value="all">
+                            All Categories
+                        </option>
+                    </select>
+
+                    <select id="statusFilter">
+                        <option value="all">
+                            All Status
+                        </option>
+
+                        <option value="published">
+                            Published
+                        </option>
+
+                        <option value="draft">
+                            Draft
+                        </option>
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- NOTES -->
+            <div
+                class="notes-container"
+                id="notesContainer"
+            ></div>
+
+
+            <!-- EMPTY -->
+            <div
+                class="empty-state"
+                id="emptyState"
+            >
+
+                <div class="empty-icon">
+                    ▤
+                </div>
+
+                <h3>
+                    No notes yet
+                </h3>
+
+                <p>
+                    Add or upload your first learning resource.
+                </p>
+
+                <button
+                    class="secondary-btn"
+                    id="emptyAddBtn"
+                >
+                    ＋ Add Your First Note
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- NOTE MODAL -->
+<div
+    class="modal-overlay"
+    id="noteModal"
+>
+
+    <div class="modal">
+
+        <div class="modal-header">
+
+            <div>
+
+                <span class="eyebrow">
+                    NOTE
+                </span>
+
+                <h2 id="modalTitle">
+                    Add Note
+                </h2>
+
+            </div>
+
+            <button
+                class="modal-close"
+                id="closeModal"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <form id="noteForm">
+
+            <input
+                type="hidden"
+                id="noteId"
+            >
+
+
+            <div class="form-grid">
+
+                <div class="form-group full">
+
+                    <label>
+                        Note Title
+                    </label>
+
+                    <input
+                        type="text"
+                        id="noteTitle"
+                        placeholder="e.g. DBMS Unit 1 Notes"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Category
+                    </label>
+
+                    <input
+                        type="text"
+                        id="noteCategory"
+                        list="categorySuggestions"
+                        placeholder="e.g. DBMS"
+                        required
+                    >
+
+                    <datalist
+                        id="categorySuggestions"
+                    ></datalist>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Status
+                    </label>
+
+                    <select id="noteStatus">
+
+                        <option value="published">
+                            Published
+                        </option>
+
+                        <option value="draft">
+                            Draft
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group full">
+
+                    <label>
+                        Description
+                    </label>
+
+                    <textarea
+                        id="noteDescription"
+                        rows="4"
+                        placeholder="Short description of this note..."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-group full">
+
+                    <label>
+                        Note File
+                    </label>
+
+                    <div
+                        class="file-upload"
+                        id="fileUpload"
+                    >
+
+                        <input
+                            type="file"
+                            id="noteFile"
+                            accept=".pdf,.doc,.docx,.txt,.md"
+                        >
+
+                        <div class="upload-icon">
+                            ↑
+                        </div>
+
+                        <strong>
+                            Click to upload
+                        </strong>
+
+                        <span>
+                            PDF, DOC, DOCX, TXT or MD
+                        </span>
+
+                        <small>
+                            Maximum file size: 5 MB
+                        </small>
+
+                    </div>
+
+                    <div
+                        class="selected-file"
+                        id="selectedFile"
+                    ></div>
+
+                </div>
+
+
+                <div class="form-group full">
+
+                    <label class="checkbox-row">
+
+                        <input
+                            type="checkbox"
+                            id="noteFeatured"
+                        >
+
+                        <span>
+                            Mark this note as Featured
+                        </span>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="cancel-btn"
+                    id="cancelModal"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="primary-btn"
+                >
+                    Save Note
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- PREVIEW -->
+<div
+    class="modal-overlay"
+    id="previewModal"
+>
+
+    <div class="preview-modal">
+
+        <button
+            class="preview-close"
+            id="closePreview"
+        >
+            ×
+        </button>
+
+        <div id="previewContent"></div>
+
+    </div>
+
+</div>
+
+
+<!-- DELETE -->
+<div
+    class="modal-overlay"
+    id="deleteModal"
+>
+
+    <div class="delete-modal">
+
+        <div class="delete-icon">
+            !
+        </div>
+
+        <h2>
+            Delete Note?
+        </h2>
+
+        <p>
+            This action cannot be undone.
+        </p>
+
+        <div class="delete-actions">
+
+            <button
+                class="cancel-btn"
+                id="cancelDelete"
+            >
+                Cancel
+            </button>
+
+            <button
+                class="delete-btn"
+                id="confirmDelete"
+            >
+                Delete
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+    <span id="toastMessage"></span>
+</div>
+
+
+<script src="js/notes.js"></script>
+
+</body>
+</html>

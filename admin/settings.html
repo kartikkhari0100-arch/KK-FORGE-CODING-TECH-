@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Settings | KK Forge</title>
+
+    <link rel="stylesheet" href="css/settings.css">
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="brand-logo">
+                <img src="../assets/image/kk-forge-logo.jpeg" alt="KK Forge">
+            </div>
+
+            <div>
+                <strong>KK FORGE</strong>
+                <span>ADMIN PANEL</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item">
+                <span class="nav-icon">⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="projects.html" class="nav-item">
+                <span class="nav-icon">▣</span>
+                <span>Projects</span>
+            </a>
+
+            <a href="notes.html" class="nav-item">
+                <span class="nav-icon">▤</span>
+                <span>Notes</span>
+            </a>
+
+            <a href="files.html" class="nav-item">
+                <span class="nav-icon">◫</span>
+                <span>Files</span>
+            </a>
+
+            <a href="categories.html" class="nav-item">
+                <span class="nav-icon">◇</span>
+                <span>Categories</span>
+            </a>
+
+            <a href="settings.html" class="nav-item active">
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <a href="../index.html" class="portfolio-link">
+                <span>↗</span>
+                View Portfolio
+            </a>
+
+            <button class="logout-btn" id="logoutBtn">
+                <span>⇥</span>
+                Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- OVERLAY -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+
+    <!-- MAIN -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <button class="mobile-menu" id="mobileMenu">
+                ☰
+            </button>
+
+            <div class="topbar-title">
+                <span>ADMIN / SETTINGS</span>
+                <h1>Settings</h1>
+            </div>
+
+            <div class="topbar-right">
+
+                <div class="status-pill">
+                    <span class="status-dot"></span>
+                    System Online
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- CONTENT -->
+        <section class="settings-content">
+
+            <div class="page-intro">
+
+                <div>
+                    <span class="eyebrow">CONTROL CENTER</span>
+
+                    <h2>
+                        Configure your
+                        <span>workspace.</span>
+                    </h2>
+
+                    <p>
+                        Manage appearance, interface preferences,
+                        portfolio settings and administrator information.
+                    </p>
+                </div>
+
+                <div class="save-status" id="saveStatus">
+                    All changes saved
+                </div>
+
+            </div>
+
+
+            <!-- SETTINGS GRID -->
+            <div class="settings-grid">
+
+
+                <!-- APPEARANCE -->
+                <section class="settings-card">
+
+                    <div class="card-heading">
+
+                        <div class="heading-icon">◐</div>
+
+                        <div>
+                            <h3>Appearance</h3>
+                            <p>Customize the admin interface.</p>
+                        </div>
+
+                    </div>
+
+
+                    <!-- THEME -->
+                    <div class="setting-row">
+
+                        <div class="setting-info">
+                            <strong>Theme</strong>
+                            <span>Choose your preferred interface theme.</span>
+                        </div>
+
+                        <div class="theme-options">
+
+                            <button
+                                class="theme-option active"
+                                data-theme="dark"
+                            >
+                                <span class="theme-preview dark-preview"></span>
+                                <span>Dark</span>
+                            </button>
+
+                            <button
+                                class="theme-option"
+                                data-theme="light"
+                            >
+                                <span class="theme-preview light-preview"></span>
+                                <span>Light</span>
+                            </button>
+
+                            <button
+                                class="theme-option"
+                                data-theme="midnight"
+                            >
+                                <span class="theme-preview midnight-preview"></span>
+                                <span>Midnight</span>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- BRIGHTNESS -->
+                    <div class="setting-row">
+
+                        <div class="setting-info">
+                            <strong>Brightness</strong>
+                            <span>Adjust the interface brightness.</span>
+                        </div>
+
+                        <div class="range-control">
+
+                            <span>70%</span>
+
+                            <input
+                                type="range"
+                                id="brightnessRange"
+                                min="70"
+                                max="120"
+                                value="100"
+                            >
+
+                            <span>120%</span>
+
+                            <strong id="brightnessValue">100%</strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ANIMATIONS -->
+                    <div class="setting-row">
+
+                        <div class="setting-info">
+                            <strong>Animations</strong>
+                            <span>Enable smooth interface animations.</span>
+                        </div>
+
+                        <label class="switch">
+
+                            <input
+                                type="checkbox"
+                                id="animationsToggle"
+                                checked
+                            >
+
+                            <span class="slider"></span>
+
+                        </label>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- PORTFOLIO -->
+                <section class="settings-card">
+
+                    <div class="card-heading">
+
+                        <div class="heading-icon">◈</div>
+
+                        <div>
+                            <h3>Portfolio</h3>
+                            <p>Manage your public portfolio preferences.</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="portfolioTitle">
+                            Portfolio Title
+                        </label>
+
+                        <input
+                            type="text"
+                            id="portfolioTitle"
+                            placeholder="KK Forge"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="portfolioTagline">
+                            Tagline
+                        </label>
+
+                        <input
+                            type="text"
+                            id="portfolioTagline"
+                            placeholder="Learn. Build. Repeat."
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="portfolioStatus">
+                            Portfolio Status
+                        </label>
+
+                        <select id="portfolioStatus">
+
+                            <option value="online">
+                                Online
+                            </option>
+
+                            <option value="maintenance">
+                                Maintenance
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ADMIN PROFILE -->
+                <section class="settings-card">
+
+                    <div class="card-heading">
+
+                        <div class="heading-icon">◎</div>
+
+                        <div>
+                            <h3>Admin Profile</h3>
+                            <p>Manage your dashboard identity.</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="profile-preview">
+
+                        <div class="profile-avatar">
+                            K
+                        </div>
+
+                        <div>
+                            <strong id="profilePreviewName">
+                                Kartik
+                            </strong>
+
+                            <span id="profilePreviewRole">
+                                Administrator
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="adminName">
+                            Display Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="adminName"
+                            placeholder="Kartik"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="adminRole">
+                            Role
+                        </label>
+
+                        <input
+                            type="text"
+                            id="adminRole"
+                            placeholder="Administrator"
+                        >
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- STORAGE -->
+                <section class="settings-card">
+
+                    <div class="card-heading">
+
+                        <div class="heading-icon">▦</div>
+
+                        <div>
+                            <h3>Storage</h3>
+                            <p>View your browser storage usage.</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="storage-stats">
+
+                        <div class="storage-item">
+                            <span>Projects</span>
+                            <strong id="storageProjects">0</strong>
+                        </div>
+
+                        <div class="storage-item">
+                            <span>Notes</span>
+                            <strong id="storageNotes">0</strong>
+                        </div>
+
+                        <div class="storage-item">
+                            <span>Files</span>
+                            <strong id="storageFiles">0</strong>
+                        </div>
+
+                        <div class="storage-item">
+                            <span>Categories</span>
+                            <strong id="storageCategories">0</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="storage-note">
+                        Your content is currently stored locally
+                        in this browser.
+                    </div>
+
+                </section>
+
+            </div>
+
+
+            <!-- ACTION BAR -->
+            <div class="settings-actions">
+
+                <button
+                    class="btn btn-secondary"
+                    id="resetBtn"
+                >
+                    Reset Appearance
+                </button>
+
+                <button
+                    class="btn btn-primary"
+                    id="saveBtn"
+                >
+                    Save Settings
+                </button>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="js/settings.js"></script>
+
+</body>
+</html>

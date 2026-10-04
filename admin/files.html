@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Files | KK Forge Admin</title>
+
+    <link rel="stylesheet" href="css/files.css">
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-brand">
+            <a href="dashboard.html">
+                <img
+                    src="../assets/image/kk-forge-logo.jpeg"
+                    alt="KK Forge Logo"
+                >
+
+                <div>
+                    <strong>KK FORGE</strong>
+                    <small>ADMIN PANEL</small>
+                </div>
+            </a>
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <p class="nav-label">MAIN</p>
+
+            <a href="dashboard.html" class="nav-item" data-module="dashboard">
+                <span class="nav-icon">⌂</span>
+                <span>Overview</span>
+            </a>
+
+            <a href="projects.html" class="nav-item" data-module="projects">
+                <span class="nav-icon">▦</span>
+                <span>Projects</span>
+            </a>
+
+            <a href="notes.html" class="nav-item" data-module="notes">
+                <span class="nav-icon">▤</span>
+                <span>Notes</span>
+            </a>
+
+            <a href="files.html" class="nav-item" data-module="files">
+                <span class="nav-icon">▱</span>
+                <span>Files</span>
+            </a>
+
+            <p class="nav-label">MANAGEMENT</p>
+
+            <a href="categories.html" class="nav-item" data-module="categories">
+                <span class="nav-icon">◈</span>
+                <span>Categories</span>
+            </a>
+
+            <a href="settings.html" class="nav-item" data-module="settings">
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a href="../index.html" class="view-portfolio">
+                ↗ &nbsp; View Portfolio
+            </a>
+
+            <button class="logout-btn" id="logoutBtn">
+                ⇥ &nbsp; Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+
+    <!-- MAIN -->
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <button class="mobile-menu" id="mobileMenu">
+                ☰
+            </button>
+
+            <div class="topbar-title">
+                <span>ADMIN /</span>
+                <strong>FILES</strong>
+            </div>
+
+            <div class="topbar-actions">
+
+                <button class="icon-btn" id="refreshBtn">
+                    ↻
+                </button>
+
+                <div class="admin-avatar">
+                    K
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <section class="page">
+
+            <!-- PAGE HEADER -->
+            <div class="page-header">
+
+                <div>
+                    <span class="eyebrow">
+                        FILE MANAGEMENT
+                    </span>
+
+                    <h1>
+                        Your <span>Files.</span>
+                    </h1>
+
+                    <p>
+                        Manage downloadable resources and portfolio files.
+                    </p>
+                </div>
+
+                <button class="primary-btn" id="uploadFileBtn">
+                    ＋ Upload File
+                </button>
+
+            </div>
+
+
+            <!-- STORAGE -->
+            <div class="storage-card">
+
+                <div class="storage-info">
+
+                    <div class="storage-icon">
+                        ▱
+                    </div>
+
+                    <div>
+                        <span>LOCAL STORAGE</span>
+
+                        <strong id="storageUsed">
+                            0 B
+                        </strong>
+
+                        <small>
+                            Browser-based file storage
+                        </small>
+                    </div>
+
+                </div>
+
+                <div class="storage-bar">
+
+                    <div
+                        class="storage-progress"
+                        id="storageProgress"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- STATS -->
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ▱
+                    </div>
+
+                    <div>
+                        <span>Total Files</span>
+                        <strong id="totalFiles">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ★
+                    </div>
+
+                    <div>
+                        <span>Featured</span>
+                        <strong id="featuredFiles">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ◈
+                    </div>
+
+                    <div>
+                        <span>Categories</span>
+                        <strong id="fileCategories">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ↗
+                    </div>
+
+                    <div>
+                        <span>File Types</span>
+                        <strong id="fileTypes">0</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- TOOLBAR -->
+            <div class="content-toolbar">
+
+                <div class="search-box">
+
+                    <span>⌕</span>
+
+                    <input
+                        type="search"
+                        id="fileSearch"
+                        placeholder="Search files..."
+                    >
+
+                </div>
+
+
+                <div class="filter-group">
+
+                    <select id="categoryFilter">
+
+                        <option value="all">
+                            All Categories
+                        </option>
+
+                    </select>
+
+
+                    <select id="typeFilter">
+
+                        <option value="all">
+                            All Types
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- FILES -->
+            <div
+                class="files-container"
+                id="filesContainer"
+            ></div>
+
+
+            <!-- EMPTY -->
+            <div
+                class="empty-state"
+                id="emptyState"
+            >
+
+                <div class="empty-icon">
+                    ▱
+                </div>
+
+                <h3>
+                    No files yet
+                </h3>
+
+                <p>
+                    Upload your first portfolio resource.
+                </p>
+
+                <button
+                    class="secondary-btn"
+                    id="emptyUploadBtn"
+                >
+                    ＋ Upload Your First File
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- FILE MODAL -->
+<div
+    class="modal-overlay"
+    id="fileModal"
+>
+
+    <div class="modal">
+
+        <div class="modal-header">
+
+            <div>
+
+                <span class="eyebrow">
+                    FILE
+                </span>
+
+                <h2 id="modalTitle">
+                    Upload File
+                </h2>
+
+            </div>
+
+            <button
+                class="modal-close"
+                id="closeModal"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <form id="fileForm">
+
+            <input
+                type="hidden"
+                id="fileId"
+            >
+
+
+            <div class="form-grid">
+
+                <div class="form-group full">
+
+                    <label>
+                        File Title
+                    </label>
+
+                    <input
+                        type="text"
+                        id="fileTitle"
+                        placeholder="e.g. DBMS Notes"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Category
+                    </label>
+
+                    <input
+                        type="text"
+                        id="fileCategory"
+                        list="categorySuggestions"
+                        placeholder="e.g. Study"
+                        required
+                    >
+
+                    <datalist
+                        id="categorySuggestions"
+                    ></datalist>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Status
+                    </label>
+
+                    <select id="fileStatus">
+
+                        <option value="published">
+                            Published
+                        </option>
+
+                        <option value="draft">
+                            Draft
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group full">
+
+                    <label>
+                        Description
+                    </label>
+
+                    <textarea
+                        id="fileDescription"
+                        rows="4"
+                        placeholder="Short description..."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-group full">
+
+                    <label>
+                        Tags
+                    </label>
+
+                    <input
+                        type="text"
+                        id="fileTags"
+                        placeholder="html, css, javascript"
+                    >
+
+                </div>
+
+
+                <div class="form-group full">
+
+                    <label>
+                        Upload / Replace File
+                    </label>
+
+                    <div
+                        class="file-upload"
+                        id="fileUpload"
+                    >
+
+                        <input
+                            type="file"
+                            id="fileInput"
+                        >
+
+                        <div class="upload-icon">
+                            ↑
+                        </div>
+
+                        <strong>
+                            Click or drop file here
+                        </strong>
+
+                        <span>
+                            PDF, images, DOC, DOCX, TXT, MD and more
+                        </span>
+
+                        <small>
+                            Maximum 5 MB per file
+                        </small>
+
+                    </div>
+
+                    <div
+                        class="selected-file"
+                        id="selectedFile"
+                    ></div>
+
+                </div>
+
+
+                <div class="form-group full">
+
+                    <label class="checkbox-row">
+
+                        <input
+                            type="checkbox"
+                            id="fileFeatured"
+                        >
+
+                        <span>
+                            Mark this file as Featured
+                        </span>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="cancel-btn"
+                    id="cancelModal"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="primary-btn"
+                >
+                    Save File
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- PREVIEW -->
+<div
+    class="modal-overlay"
+    id="previewModal"
+>
+
+    <div class="preview-modal">
+
+        <button
+            class="preview-close"
+            id="closePreview"
+        >
+            ×
+        </button>
+
+        <div id="previewContent"></div>
+
+    </div>
+
+</div>
+
+
+<!-- DELETE -->
+<div
+    class="modal-overlay"
+    id="deleteModal"
+>
+
+    <div class="delete-modal">
+
+        <div class="delete-icon">
+            !
+        </div>
+
+        <h2>
+            Delete File?
+        </h2>
+
+        <p>
+            This action cannot be undone.
+        </p>
+
+        <div class="delete-actions">
+
+            <button
+                class="cancel-btn"
+                id="cancelDelete"
+            >
+                Cancel
+            </button>
+
+            <button
+                class="delete-btn"
+                id="confirmDelete"
+            >
+                Delete
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+    <span id="toastMessage"></span>
+</div>
+
+
+<script src="js/files.js"></script>
+
+</body>
+</html>

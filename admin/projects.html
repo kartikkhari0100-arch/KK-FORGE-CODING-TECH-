@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Projects | KK Forge Admin</title>
+
+    <link rel="stylesheet" href="css/projects.css">
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-brand">
+            <a href="dashboard.html">
+                <img src="../assets/image/kk-forge-logo.jpeg" alt="KK Forge Logo">
+
+                <div>
+                    <strong>KK FORGE</strong>
+                    <small>ADMIN PANEL</small>
+                </div>
+            </a>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <p class="nav-label">MAIN</p>
+
+            <a href="dashboard.html" class="nav-item" data-module="dashboard">
+                <span class="nav-icon">⌂</span>
+                <span>Overview</span>
+            </a>
+
+            <a href="projects.html" class="nav-item active" data-module="projects">
+                <span class="nav-icon">▦</span>
+                <span>Projects</span>
+            </a>
+
+            <a href="notes.html" class="nav-item" data-module="notes">
+                <span class="nav-icon">▤</span>
+                <span>Notes</span>
+            </a>
+
+            <a href="files.html" class="nav-item" data-module="files">
+                <span class="nav-icon">▱</span>
+                <span>Files</span>
+            </a>
+
+            <p class="nav-label">MANAGEMENT</p>
+
+            <a href="categories.html" class="nav-item" data-module="categories">
+                <span class="nav-icon">◈</span>
+                <span>Categories</span>
+            </a>
+
+            <a href="settings.html" class="nav-item" data-module="settings">
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <a href="../index.html" class="view-portfolio">
+                <span>↗</span>
+                View Portfolio
+            </a>
+
+            <button class="logout-btn" id="logoutBtn">
+                <span>⇥</span>
+                Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= OVERLAY ================= -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+
+    <!-- ================= MAIN ================= -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">
+                ☰
+            </button>
+
+            <div class="topbar-title">
+                <span>ADMIN /</span>
+                <strong>PROJECTS</strong>
+            </div>
+
+            <div class="topbar-actions">
+
+                <button class="icon-btn" id="refreshBtn" title="Refresh">
+                    ↻
+                </button>
+
+                <div class="admin-avatar">
+                    K
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= PAGE ================= -->
+        <section class="page">
+
+            <div class="page-header">
+
+                <div>
+                    <span class="eyebrow">PROJECT MANAGEMENT</span>
+
+                    <h1>
+                        Your <span>Projects.</span>
+                    </h1>
+
+                    <p>
+                        Manage the projects displayed across your KK Forge portfolio.
+                    </p>
+                </div>
+
+                <button class="primary-btn" id="addProjectBtn">
+                    <span>＋</span>
+                    Add Project
+                </button>
+
+            </div>
+
+
+            <!-- ================= STATS ================= -->
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-icon">▦</div>
+
+                    <div>
+                        <span>Total Projects</span>
+                        <strong id="totalProjects">0</strong>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon">★</div>
+
+                    <div>
+                        <span>Featured</span>
+                        <strong id="featuredProjects">0</strong>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon">◈</div>
+
+                    <div>
+                        <span>Categories</span>
+                        <strong id="projectCategories">0</strong>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon">✓</div>
+
+                    <div>
+                        <span>Published</span>
+                        <strong id="publishedProjects">0</strong>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- ================= TOOLBAR ================= -->
+            <div class="content-toolbar">
+
+                <div class="search-box">
+                    <span>⌕</span>
+
+                    <input
+                        type="search"
+                        id="projectSearch"
+                        placeholder="Search projects..."
+                        autocomplete="off"
+                    >
+                </div>
+
+
+                <div class="filter-group">
+
+                    <select id="categoryFilter">
+                        <option value="all">All Categories</option>
+                    </select>
+
+                    <select id="statusFilter">
+                        <option value="all">All Status</option>
+                        <option value="published">Published</option>
+                        <option value="draft">Draft</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= PROJECT LIST ================= -->
+            <div id="projectsContainer" class="projects-container">
+
+                <!-- JS will render projects here -->
+
+            </div>
+
+
+            <!-- ================= EMPTY STATE ================= -->
+            <div class="empty-state" id="emptyState">
+
+                <div class="empty-icon">
+                    ▦
+                </div>
+
+                <h3>No projects yet</h3>
+
+                <p>
+                    Add your first project to start building your portfolio.
+                </p>
+
+                <button class="secondary-btn" id="emptyAddBtn">
+                    ＋ Add Your First Project
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- ================= PROJECT MODAL ================= -->
+<div class="modal-overlay" id="projectModal">
+
+    <div class="modal">
+
+        <div class="modal-header">
+
+            <div>
+                <span class="eyebrow">PROJECT</span>
+                <h2 id="modalTitle">Add Project</h2>
+            </div>
+
+            <button class="modal-close" id="closeModal">
+                ×
+            </button>
+
+        </div>
+
+
+        <form id="projectForm">
+
+            <input type="hidden" id="projectId">
+
+
+            <div class="form-grid">
+
+                <!-- TITLE -->
+                <div class="form-group full">
+
+                    <label for="projectTitle">
+                        Project Title
+                    </label>
+
+                    <input
+                        type="text"
+                        id="projectTitle"
+                        placeholder="e.g. Student Management System"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- CATEGORY -->
+                <div class="form-group">
+
+                    <label for="projectCategory">
+                        Category
+                    </label>
+
+                    <input
+                        type="text"
+                        id="projectCategory"
+                        list="categorySuggestions"
+                        placeholder="e.g. Web Development"
+                        required
+                    >
+
+                    <datalist id="categorySuggestions"></datalist>
+
+                </div>
+
+
+                <!-- STATUS -->
+                <div class="form-group">
+
+                    <label for="projectStatus">
+                        Status
+                    </label>
+
+                    <select id="projectStatus">
+
+                        <option value="published">
+                            Published
+                        </option>
+
+                        <option value="draft">
+                            Draft
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- DESCRIPTION -->
+                <div class="form-group full">
+
+                    <label for="projectDescription">
+                        Description
+                    </label>
+
+                    <textarea
+                        id="projectDescription"
+                        rows="5"
+                        placeholder="Describe what you built..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <!-- TECHNOLOGIES -->
+                <div class="form-group full">
+
+                    <label for="projectTechnologies">
+                        Technologies
+                    </label>
+
+                    <input
+                        type="text"
+                        id="projectTechnologies"
+                        placeholder="HTML, CSS, JavaScript"
+                    >
+
+                    <small>
+                        Separate technologies using commas.
+                    </small>
+
+                </div>
+
+
+                <!-- GITHUB -->
+                <div class="form-group">
+
+                    <label for="projectGithub">
+                        GitHub URL
+                    </label>
+
+                    <input
+                        type="url"
+                        id="projectGithub"
+                        placeholder="https://github.com/..."
+                    >
+
+                </div>
+
+
+                <!-- LIVE -->
+                <div class="form-group">
+
+                    <label for="projectLive">
+                        Live Demo URL
+                    </label>
+
+                    <input
+                        type="url"
+                        id="projectLive"
+                        placeholder="https://..."
+                    >
+
+                </div>
+
+
+                <!-- IMAGE -->
+                <div class="form-group full">
+
+                    <label for="projectImage">
+                        Project Image URL
+                    </label>
+
+                    <input
+                        type="url"
+                        id="projectImage"
+                        placeholder="https://..."
+                    >
+
+                    <small>
+                        Optional. Leave empty if you don't have an image.
+                    </small>
+
+                </div>
+
+
+                <!-- FEATURED -->
+                <div class="form-group full">
+
+                    <label class="checkbox-row">
+
+                        <input
+                            type="checkbox"
+                            id="projectFeatured"
+                        >
+
+                        <span>
+                            Mark this project as Featured
+                        </span>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="cancel-btn"
+                    id="cancelModal"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="primary-btn"
+                >
+                    Save Project
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- ================= PREVIEW MODAL ================= -->
+<div class="modal-overlay" id="previewModal">
+
+    <div class="preview-modal">
+
+        <button class="preview-close" id="closePreview">
+            ×
+        </button>
+
+        <div id="previewContent"></div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= DELETE MODAL ================= -->
+<div class="modal-overlay" id="deleteModal">
+
+    <div class="delete-modal">
+
+        <div class="delete-icon">
+            !
+        </div>
+
+        <h2>Delete Project?</h2>
+
+        <p>
+            This action cannot be undone.
+        </p>
+
+        <div class="delete-actions">
+
+            <button
+                class="cancel-btn"
+                id="cancelDelete"
+            >
+                Cancel
+            </button>
+
+            <button
+                class="delete-btn"
+                id="confirmDelete"
+            >
+                Delete
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= TOAST ================= -->
+<div class="toast" id="toast">
+    <span id="toastMessage"></span>
+</div>
+
+
+<script src="js/projects.js"></script>
+
+</body>
+</html>
